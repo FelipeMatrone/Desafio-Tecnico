@@ -1,4 +1,4 @@
-# Explicação Breve de como foi organizado o do código
+# Explicação Breve de como foi organizado o código
 
 Fiz a organização em dois arquivos: index.html, style.css, feita essa separação para melhorar o entendimento do código e deixar o CSS mais fácil de ser reutilizado quando necessário.
 
