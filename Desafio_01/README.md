@@ -8,12 +8,12 @@ Os atributos required, minlength, type, autocomplete e for/id ajudam na validaç
 No style.css, tem toda a estética, ou seja, a aparência. Começa com um reset simples `(\*)` para padronizar os espaçamentos e box-sizing. Depois, um body para centralizar o formulário na tela com Flexbox.
 A hierarquia visual no CSS ficou assim:
 
-    * body: fundo, fonte e centralização.
-    * .container: limita a largura máxima do conteúdo.
-    * .formulario: cria o cartão branco, com espaçamento, bordas arredondadas e sombra.
-    * .campo, label e input: organizam e estilizam cada campo.
-    * Estados interativos: :focus nos inputs, :hover e :focus-visible no botão.
-    * @media (max-width: 480px): reduz o preenchimento do cartão em telas pequenas.
+1) body: fundo, fonte e centralização.
+2) .container: limita a largura máxima do conteúdo.
+3) .formulario: cria o cartão branco, com espaçamento, bordas arredondadas e sombra.
+4) .campo, label e input: organizam e estilizam cada campo.
+5) Estados interativos: :focus nos inputs, :hover e :focus-visible no botão.
+6) @media (max-width: 480px): reduz o preenchimento do cartão em telas pequenas.
 
 ## Estrutura Desafio 01
 
