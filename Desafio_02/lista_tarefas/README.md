@@ -1,42 +1,67 @@
-# lista_tarefas
+# Explicação de como foi organizado
 
-This template should help get you started developing with Vue 3 in Vite.
+Organizei a aplicação separando os componentes por responsabilidade:
 
-## Recommended IDE Setup
+1. App.vue: concentra a lista de tarefas, o filtro selecionado e o controle de abertura do modal. Também contém as funções para adicionar, concluir e remover tarefas.
+2. FormularioTarefa.vue: controla o texto digitado, valida se não está vazio e emite um evento para adicionar a tarefa.
+3. ModalTarefas.vue: exibe o modal, os filtros e a lista de tarefas.
+4. ItemTarefa.vue: representa uma tarefa individual, com checkbox e botão de exclusão.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Os dados são enviados aos componentes filhos por props, e as ações são comunicadas ao componente pai por eventos. Assim, o App.vue mantém o controle da lista, sem os filhos alterarem diretamente os dados recebidos.
+Os tipos compartilhados Task e Filter ficam em tipos/tarefa.ts, e os estilos ficam em assets/main.css.
 
-## Recommended Browser Setup
+Utilizei a Composition API com `<script setup lang="ts">` e duas primitivas principais:
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- ref: para os estados reativos, como texto digitado, lista de tarefas, abertura do modal e filtro selecionado. Quando esses valores mudam, o Vue atualiza a interface automaticamente.
+- computed: para gerar a lista filtrada a partir das tarefas e do filtro atual. Como essa lista é um valor derivado, ela é recalculada automaticamente quando suas dependências mudam.
 
-## Type Support for `.vue` Imports in TS
+Não utilizei reactive, pois ref já atende aos estados da aplicação, incluindo o array de objetos das tarefas. Essa escolha mantém o código mais simples e consistente.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Estrutura Desafio 02 - Lista de Tarefas
 
-## Customize configuration
+```text
+Desafio-Tecnico/
+└── Desafio_02/
+    └── lista_tarefas/
+        ├── src/
+        │   ├── assets/
+        │   │   └── main.css
+        │   ├── componentes/
+        │   │   ├── FormularioTarefa.vue
+        │   │   ├── ItemTarefa.vue
+        │   │   └── ModalTarefas.vue
+        │   ├── tipos/
+        │   │   └── tarefa.ts
+        │   ├── App.vue
+        │   └── main.ts
+        ├── .gitignore
+        ├── env.d.ts
+        ├── index.html
+        ├── package.json
+        ├── package-lock.json
+        ├── README.md
+        ├── tsconfig.app.json
+        ├── tsconfig.json
+        ├── tsconfig.node.json
+        └── vite.config.ts
+```
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Como executar?
 
-## Project Setup
+Com o Node.js instalado, abra o terminal na pasta Desafio-Tecnico e acesse o projeto:
 
-```sh
+```bash
+cd Desafio_02/lista_tarefas
+```
+
+Instale as dependências:
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Inicie o servidor de desenvolvimento:
 
-```sh
+```bash
 npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
 ```
