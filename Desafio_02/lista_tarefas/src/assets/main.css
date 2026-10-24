@@ -68,6 +68,67 @@ button:hover {
   background: #1d4ed8;
 }
 
+.view-tasks-button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px;
+  font-size: 16px;
+}
+
+.modal-overlay {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgb(15 23 42 / 35%);
+  backdrop-filter: blur(6px);
+}
+
+.task-modal {
+  width: min(100%, 560px);
+  max-height: min(80vh, 620px);
+  overflow: auto;
+  padding: 28px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 20px 50px rgb(15 23 42 / 30%);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.close-button,
+.delete-button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: transparent;
+  color: #475569;
+}
+
+.close-button {
+  width: 36px;
+  height: 36px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.close-button:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
 .empty-state {
   margin: 24px 0 0;
   color: #64748b;
@@ -76,16 +137,70 @@ button:hover {
 
 .task-list {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   margin: 24px 0 0;
   padding: 0;
   list-style: none;
 }
 
 .task-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   padding: 12px;
+  border: 1px solid #cbd5e1;
   border-radius: 6px;
-  background: #eff6ff;
+  background: #ffffff;
+}
+
+.task-label {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.task-label input {
+  width: 18px;
+  height: 18px;
+  accent-color: #16a34a;
+}
+
+.task-label span {
+  overflow-wrap: anywhere;
+}
+
+.task-list li.completed {
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+}
+
+.task-list li.completed .task-label span {
+  color: #15803d;
+  text-decoration: line-through;
+}
+
+.delete-button {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  color: #dc2626;
+}
+
+.delete-button:hover {
+  background: #fee2e2;
+}
+
+.delete-button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
 }
 
 @media (max-width: 480px) {
