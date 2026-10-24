@@ -1,15 +1,30 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 interface Task {
   id: number
   title: string
-  completed: boolean
+  finalizados: boolean
 }
+
+type Filter = 'todos' | 'pendente' | 'finalizados'
 
 const newTask = ref('')
 const tasks = ref<Task[]>([])
 const isTaskModalOpen = ref(false)
+const currentFilter = ref<Filter>('todos')
+
+const filteredTasks = computed(() => {
+  if (currentFilter.value === 'pendente') {
+    return tasks.value.filter((task) => !task.finalizados)
+  }
+
+  if (currentFilter.value === 'finalizados') {
+    return tasks.value.filter((task) => task.finalizados)
+  }
+
+  return tasks.value
+})
 
 function addTask() {
   const taskTitle = newTask.value.trim()
@@ -19,7 +34,7 @@ function addTask() {
   tasks.value.push({
     id: Date.now(),
     title: taskTitle,
-    completed: false,
+    finalizados: false,
   })
   newTask.value = ''
 }
@@ -73,12 +88,45 @@ function removeTask(taskId: number) {
         </button>
       </div>
 
+      <div class="filters" aria-label="Filtrar tarefas">
+        <button
+          class="filter-button"
+          :class="{ active: currentFilter === 'todos' }"
+          type="button"
+          :aria-pressed="currentFilter === 'todos'"
+          @click="currentFilter = 'todos'"
+        >
+          Todas
+        </button>
+        <button
+          class="filter-button"
+          :class="{ active: currentFilter === 'pendente' }"
+          type="button"
+          :aria-pressed="currentFilter === 'pendente'"
+          @click="currentFilter = 'pendente'"
+        >
+          Pendentes
+        </button>
+        <button
+          class="filter-button"
+          :class="{ active: currentFilter === 'finalizados' }"
+          type="button"
+          :aria-pressed="currentFilter === 'finalizados'"
+          @click="currentFilter = 'finalizados'"
+        >
+          Concluídas
+        </button>
+      </div>
+
       <p v-if="tasks.length === 0" class="empty-state">Nenhuma tarefa adicionada.</p>
+      <p v-else-if="filteredTasks.length === 0" class="empty-state">
+        Nenhuma tarefa encontrada neste filtro.
+      </p>
 
       <ul v-else class="task-list" aria-label="Tarefas adicionadas">
-        <li v-for="task in tasks" :key="task.id" :class="{ completed: task.completed }">
+        <li v-for="task in filteredTasks" :key="task.id" :class="{ finalizados: task.finalizados }">
           <label class="task-label">
-            <input v-model="task.completed" type="checkbox" />
+            <input v-model="task.finalizados" type="checkbox" />
             <span>{{ task.title }}</span>
           </label>
           <button

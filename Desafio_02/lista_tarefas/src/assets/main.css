@@ -129,6 +129,33 @@ button:hover {
   color: #0f172a;
 }
 
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.filter-button {
+  padding: 9px 12px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #334155;
+  font-size: 14px;
+}
+
+.filter-button:hover {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.filter-button.active,
+.filter-button.active:hover {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #fff;
+}
+
 .empty-state {
   margin: 24px 0 0;
   color: #64748b;
