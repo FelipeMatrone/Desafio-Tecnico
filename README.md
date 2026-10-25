@@ -1,6 +1,6 @@
 # Desafio Técnico — Fullstack Júnior
 
-Este repositório reúne as soluções dos exercícios de HTML e CSS, Vue 3, TypeScript, SQL e NestJS. Cada desafio foi organizado em sua própria pasta, com um README explicando a implementação e como executá-la.
+Este repositório reúne as soluções dos exercícios de HTML e CSS, Vue 3, TypeScript, SQL e NestJS, além das respostas sobre Git, organização de projeto e resolução de problemas. Cada desafio foi organizado em sua própria pasta, com um README contendo as explicações e, quando necessário, as instruções de execução.
 
 ## Organização do repositório
 
@@ -10,7 +10,10 @@ Desafio-Tecnico/
 ├── Desafio_02/    # Lista de tarefas com Vue 3
 ├── Desafio_03/    # Filtragem de usuários com TypeScript
 ├── Desafio_04/    # Consultas SQL
-├── desafio_05/    # API de usuários com NestJS
+├── Desafio_05/    # API de usuários com NestJS
+├── Desafio_06/    # Git e estratégia de commits
+├── Desafio_07/    # Organização de um projeto fullstack
+├── Desafio_08/    # Investigação de lentidão na tela de login
 └── README.md
 ```
 
@@ -22,23 +25,14 @@ As instruções específicas de instalação, execução e testes estão no READ
 - [Desafio 02 — Vue 3 com Composition API](Desafio_02/lista_tarefas/README.md)
 - [Desafio 03 — TypeScript](Desafio_03/README.md)
 - [Desafio 04 — SQL](Desafio_04/README.md)
-- [Desafio 05 — Backend NestJS](desafio_05/README.md)
+- [Desafio 05 — Backend NestJS](Desafio_05/README.md)
 
 Os exercícios são independentes e podem ser executados separadamente.
 
-## Desafio 06 - Estratégia de commits
+## Git, arquitetura e resolução de problemas
 
-Organizei os commits por etapas, registrando a evolução das soluções ao longo do desenvolvimento.
+As respostas descritivas estão nos seguintes arquivos e não exigem execução:
 
-No desafio de Vue, comecei pela criação da lista de tarefas, depois adicionei o modal, o gerenciamento das tarefas e os filtros. Em seguida, fiz um commit de refatoração para separar formulário, modal e itens em componentes.
-No desafio de TypeScript, separei a implementação obrigatória, que retorna os nomes dos usuários com mais de 23 anos, da função genérica do bônus.
-No desafio de banco de dados, registrei as consultas SQL e os prints dos resultados em um commit. Depois, fiz outro commit com a explicação das consultas no README, incluindo a versão do bônus compatível com MySQL.
-No backend, registrei a implementação da API em um commit, os prints dos testes no Postman em outro e a documentação em um terceiro.
-
-Utilizei as seguintes indicações nas mensagens:
-
-- `feat`: criação de funcionalidades.
-- `refactor`: reorganização do código.
-- `docs`: explicações, instruções de execução e imagens dos resultados.
-
-Essa divisão facilita acompanhar as etapas do trabalho e identificar o objetivo de cada alteração no histórico.
+- [Desafio 06 — Git e estratégia de commits](Desafio_06/README.md)
+- [Desafio 07 — Organização de um projeto fullstack](Desafio_07/README.md)
+- [Desafio 08 — Cenário de problema: lentidão no login](Desafio_08/README.md)

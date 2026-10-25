@@ -18,7 +18,7 @@ Os usuários ficam em memória. Ao reiniciar o servidor, a lista volta aos dados
 Com o Node.js instalado, abra o terminal na pasta `Desafio-Tecnico` e acesse o projeto:
 
 ```bash
-cd desafio_05
+cd Desafio_05
 ```
 
 Instale as dependências:
@@ -67,7 +67,7 @@ A API retorna o usuário criado com status `201`. Faça outro `GET /users` para 
 
 ```text
 Desafio-Tecnico/
-└── desafio_05/
+└── Desafio_05/
     ├── imagens/
     │   ├── GET_do_users.png
     │   ├── POST_do_users.png
